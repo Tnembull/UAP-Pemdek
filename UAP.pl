@@ -1,6 +1,6 @@
 % Nama : Muhammad Nur Ashiddiqi
 % NPM  : 1857051014
-% Ujian Tengah Praktikum
+% Ujian Akhir Praktikum
 
 %fact
 
@@ -62,38 +62,17 @@ nthchild(N, Family, Child) :-
     children(Family, ChildList), 
     nth_member(N, ChildList, Child).
  
- dateofbirth( person( _, _, Date, _), Date).
+dateofbirth( person( _, _, Date, _), Date).
  
- salary( person( _, _, _, works( _, S) ), S).
- salary( person( _, _, _, unemployed), 0).
+salary( person( _, _, _, works( _, S) ), S).
+salary( person( _, _, _, unemployed), 0).
  
  
- total( [], 0).
+total( [], 0).
  
- total( [Person|List], Sum) :-
+total( [Person|List], Sum) :-
     salary( Person, S),
     total( List, Rest),
     Sum is S + Rest.
  
- final( s3).
- 
- trans( s1, a, s1).
- trans( s1, a, s2).
- trans( s1, b, s1).
- trans( s2, b, s3).
- trans( s3, b, s4).
- 
- silent( s2, s4).
- silent( s3, s1).
- 
- accepts( State, []) :-
-    final( State).
- 
- accepts( State, [X|Rest]) :-
-    trans( State, X, State1),
-    accepts( State1, Rest).
- 
- accepts( State, String) :-
-    silent( State, State1),
-    accepts( State1, String).
  
